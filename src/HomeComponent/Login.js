@@ -4,7 +4,7 @@ import Search from "./Search";
 
 function Login() {
   return (
-    <div className="bg-[url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/8a6a68144592045.628efcd3e77b5.jpg')] h-screen w-screen bg-no-repeat opacity-100 ">
+    <div className="bg-[url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/8a6a68144592045.628efcd3e77b5.jpg')] h-screen w-screen bg-no-repeat opacity-100  ">
       <div className="h-screen w-full bg-black bg-opacity-60 ">
         <Navbar />
         <div className="grid grid-cols-1 lg:p-24 p-16">
