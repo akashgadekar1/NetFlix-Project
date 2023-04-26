@@ -1,21 +1,17 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./index.css";
-// import Login from "./Component/Login";
-// import Card from "./CardCompoent/Card";
-import TrendingMovie from "./Screens/TrendingMovie";
-import NewReleseMovie from "./Screens/NewReleseMovie";
-// import Card3 from "./CardCompoent/Card3";
-import NumberMovie from "./Screens/NumberMovie";
+import { Route, Routes } from "react-router-dom";
+import DetailsPage from "./MoveDetails.js/DetailsPage";
 import Login from "./HomeComponent/Login";
-
+import Home from "./Screens/Home";
 function App() {
   return (
-    <div className=" bg-black h-full w-screen ">
-      <Login />
-      <TrendingMovie />
-      <NewReleseMovie />
-      <NumberMovie />
-      {/* <NewReleseMovie /> */}
+    <div className="h-full bg-black w-screen">
+      <Routes>
+        <Route exact path="/" element={<Login />}></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/details" element={<DetailsPage />}></Route>
+      </Routes>
     </div>
   );
 }

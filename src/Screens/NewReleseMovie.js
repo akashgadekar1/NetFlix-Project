@@ -1,33 +1,20 @@
-import React from "react";
-import Card from "../CardCompoent/Card";
+import React, { useEffect, useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { getRelaeseMovie } from "../redux/Rel/action";
+import { LandScapeImageBaseURL } from "../config/config";
+import MovieCard from "../CardCompoent/MovieCard";
 
 function NewReleseMovie() {
-  const data = [
-    {
-      img: "https://dnm.nflximg.net/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTwNBoEdZ1NvgnhQguIRrlOCl26E8tmwBB7zCRp6FTyrvmHIuo00XK6CRU_XjMJmFvhbiDZqLIcNCkneiAW7v1G8PfoYkE6h1fLbfYkTqRG2nIxWHLac6eAH56X3I1SB-0l9Gw.jpg?r=71f",
-    },
-    {
-      img: "https://i.ytimg.com/vi/rgULl9Qi2WM/maxresdefault.jpg",
-    },
-    {
-      img: "https://m.media-amazon.com/images/S/aplus-media-library-service-media/2e88e769-5c2c-4c89-87c0-0a325b4408dd.__CR0,0,970,600_PT0_SX970_V1___.jpg",
-    },
-    {
-      img: "https://i.pinimg.com/originals/42/6f/08/426f08deddcab7156b621266fc6710c2.jpg",
-    },
-    {
-      img: "https://i.pinimg.com/originals/42/6f/08/426f08deddcab7156b621266fc6710c2.jpg",
-    },
-    {
-      img: "https://i.pinimg.com/originals/42/6f/08/426f08deddcab7156b621266fc6710c2.jpg",
-    },
-    {
-      img: "https://i.pinimg.com/originals/42/6f/08/426f08deddcab7156b621266fc6710c2.jpg",
-    },
-    {
-      img: "https://i.pinimg.com/originals/42/6f/08/426f08deddcab7156b621266fc6710c2.jpg",
-    },
-  ];
+  const dispatch = useDispatch();
+  const [data, setdata] = useState([]);
+  const RelseseMovie = useSelector((state) => state.Release.respData);
+
+  useEffect(() => {
+    dispatch(getRelaeseMovie());
+  }, []);
+
   return (
     <>
       <div className="   ">
@@ -37,9 +24,16 @@ function NewReleseMovie() {
           </h1>
           <div className="relative flex rounded-lg">
             <div className="overflow-x-scroll scroll  whitespace-nowrap scroll-smooth  scrollbar-hide flex ">
-              {data.map((val, index) => {
-                return <Card key={index} img={val.img} />;
-              })}
+              {RelseseMovie &&
+                RelseseMovie.map((val, index) => {
+                  return (
+                    <MovieCard
+                      id={val.id}
+                      key={index}
+                      img={LandScapeImageBaseURL + val.backdrop_path}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>

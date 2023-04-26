@@ -1,5 +1,5 @@
 import React from "react";
-import Card3 from "../CardCompoent/Card3";
+import Numbercard from "../CardCompoent/Numbercard";
 
 function NumberMovie(props) {
   const data = [
@@ -38,14 +38,14 @@ function NumberMovie(props) {
   ];
   return (
     <>
-      <h1 className="text-white text-2xl font-medium lg:p-3 inline-block m-3 font-poppins ">
+      <h1 className="text-white text-2xl font-medium lg:p-3 inline-block mb-3 font-poppins ">
         Top 10 Movies
       </h1>
 
       <div className=" relative flex rounded-lg  ">
         <div className="overflow-x-scroll scroll  whitespace-nowrap scroll-smooth  scrollbar-hide flex   ">
           {data.slice(0, 6).map((val, index) => {
-            return <Card3 key={index} img={val.img} id={val.id} />;
+            return <Numbercard key={index} img={val.img} id={val.id} />;
           })}
         </div>
       </div>
