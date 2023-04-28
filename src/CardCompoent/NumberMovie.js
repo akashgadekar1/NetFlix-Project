@@ -1,5 +1,5 @@
 import React from "react";
-import Numbercard from "../CardCompoent/Numbercard";
+import Numbercard from "./Numbercard";
 
 function NumberMovie(props) {
   const data = [
@@ -38,7 +38,7 @@ function NumberMovie(props) {
   ];
   return (
     <>
-      <h1 className="text-white text-2xl font-medium lg:p-3 inline-block mb-3 font-poppins ">
+      <h1 className="text-white lg:text-2xl font-medium lg:p-3 inline-block mb-3 font-poppins ">
         Top 10 Movies
       </h1>
 

@@ -10,20 +10,23 @@ function MovieCard(props) {
         search: "id=" + props.id,
       }}
     >
-      <div className="w-96 ml-2 relative">
+      <div className="lg:w-96 w-52 ml-2 relative overflow-hidden rounded-xl">
         <img
-          className="h-60 
+          className="lg:h-60 h-28
+          hover:scale-125 transition-all duration-300
       cursor-pointer  rounded-xl"
           src={props.img}
         />
 
         <div className="absolute bottom-0  h-36 w-full   rounded-sm  bg-gradient-to-t from-black to-transparent">
-          <div className="mt-10 ml-3">
-            <h1 className="text-white text-2xl font-semibold mx-2 font-poppins ">
-              {props.title}
+          <div className="lg:mt-10 mt-28 ml-3">
+            <h1 className="text-white lg:text-2xl text-sm font-semibold mx-2 font-poppins ">
+              {props.title.length > 24
+                ? props.title.slice(0, 24) + " .."
+                : props.title}
             </h1>
-            <h1 className="text-white text-xl font-light mx-2 font-poppins ">
-              2022
+            <h1 className="text-white lg:visible invisible text-sm font-light mx-2 font-poppins ">
+              {props.release_date}
             </h1>
             <div className="mx-2 flex items-center ">
               <img
@@ -31,13 +34,15 @@ function MovieCard(props) {
                 className="h-6 "
               />
               <span className="text-white mx-2 font-poppins text-xs ">
-                7.9 Rating
+                {props.vote_average.toFixed(1)} Rating
               </span>
-              <div className="bg-red-600 h-10 w-28 rounded-full text-white text-sm justify-center items-center flex font-poppins">
-                Watch Now
-              </div>
-              <div className="bg-red-600 h-10 w-10 rounded-full text-white text-xl justify-center items-center flex ml-3">
-                +
+              <div className="flex mx-14 justify-center items-center ">
+                <div className="bg-red-600 h-10 w-28 rounded-full text-white text-sm justify-center items-center flex font-poppins">
+                  Watch Now
+                </div>
+                <div className="bg-red-600 h-10 w-10 rounded-full text-white text-xl justify-center items-center flex ml-3">
+                  +
+                </div>
               </div>
             </div>
           </div>

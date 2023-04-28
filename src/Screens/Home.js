@@ -1,15 +1,19 @@
 import React from "react";
 import MovieCard from "../CardCompoent/MovieCard";
-import NewReleseMovie from "./NewReleseMovie";
-import TrendingMovie from "./TrendingMovie";
-import NumberMovie from "./NumberMovie";
+import NewReleseMovie from "../CardCompoent/NewReleseMovie";
+import TrendingMovie from "../CardCompoent/TrendingMovie";
+import NumberMovie from "../CardCompoent/NumberMovie";
 
 function Home() {
   return (
     <>
-      <NewReleseMovie />
-      <TrendingMovie />
-      <NumberMovie />
+      <div className=" bg-black h-full w-full  ">
+        <NewReleseMovie />
+        <TrendingMovie />
+        <NewReleseMovie />
+        <TrendingMovie />
+        <NumberMovie />
+      </div>
     </>
   );
 }
